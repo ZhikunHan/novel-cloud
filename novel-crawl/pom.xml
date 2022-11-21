@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>novel-cloud</artifactId>
+        <groupId>com.hantiv.novel</groupId>
+        <version>1.3.0</version>
+    </parent>
+    <artifactId>novel-crawl</artifactId>
+    <description>爬虫管理程序</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hantiv.novel</groupId>
+            <artifactId>novel-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hantiv.novel</groupId>
+            <artifactId>book-service</artifactId>
+            <version>1.3.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <!-- 文件夹 -->
+                                <copy todir="${project.build.directory}/build/config" overwrite="true">
+                                    <fileset dir="${basedir}/src/main/build/config">
+                                        <include name="*.*"/>
+                                    </fileset>
+                                </copy>
+                                <copy file="${project.build.directory}/${project.artifactId}-${project.version}.jar"
+                                      tofile="${project.build.directory}/build/${project.artifactId}.jar"/>
+
+                                <fixcrlf srcdir="${basedir}/src/main/build/scripts" eol="unix"/>
+                                <copy todir="${project.build.directory}/build/bin">
+                                    <fileset dir="${basedir}/src/main/build/scripts">
+                                        <include name="*.sh"/>
+                                        <include name="*.txt"/>
+                                        <include name="*.bat"/>
+                                    </fileset>
+                                </copy>
+                                <zip destfile='${project.build.directory}/build/${project.artifactId}.zip'>
+                                    <zipfileset filemode="755" dir='${project.build.directory}/build/'/>
+                                </zip>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

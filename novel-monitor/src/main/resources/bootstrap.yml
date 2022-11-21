@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: novel-monitor
+  cloud:
+    nacos:
+      config:
+        server-addr: 158.101.132.40:8848
+        file-extension: yml
+        group: ${spring.application.name}
+        namespace: fad62b85-336c-4a10-b8e5-fe80184b0885
