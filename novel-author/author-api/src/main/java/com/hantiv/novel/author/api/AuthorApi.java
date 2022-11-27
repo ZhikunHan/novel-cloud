@@ -6,4 +6,5 @@ package com.hantiv.novel.author.api;
  * @Description:
  */
 public interface AuthorApi {
+
 }

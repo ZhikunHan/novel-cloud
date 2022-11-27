@@ -5,7 +5,6 @@ import com.hantiv.novel.book.entity.Book;
 import com.hantiv.novel.book.entity.BookIndex;
 import com.hantiv.novel.crawl.core.crawl.RuleBean;
 import com.hantiv.novel.crawl.entity.CrawlSource;
-import com.hantiv.novel.crawl.service.BookService;
 import com.hantiv.novel.crawl.service.CrawlService;
 import com.hantiv.novel.crawl.utils.Constants;
 import lombok.RequiredArgsConstructor;

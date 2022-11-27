@@ -1,47 +1,84 @@
 package com.hantiv.novel.author.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-
-import javax.annotation.Generated;
 import java.util.Date;
+import javax.annotation.Generated;
 
-@TableName("author_code")
-@Data
 public class AuthorCode {
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键
-     */
-    @TableId(value = "id", type = IdType.AUTO)
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;
 
-    /**
-     * 邀请码
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String inviteCode;
 
-    /**
-     * 有效时间
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date validityTime;
 
-    /**
-     * 是否使用过;0-未使用 1-使用过
-     */
-    private Integer isUsed;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte isUse;
 
-    /**
-     * 创建时间
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date createTime;
 
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Long createUserId;
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getId() {
+        return id;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getInviteCode() {
+        return inviteCode;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setInviteCode(String inviteCode) {
+        this.inviteCode = inviteCode == null ? null : inviteCode.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Date getValidityTime() {
+        return validityTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setValidityTime(Date validityTime) {
+        this.validityTime = validityTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getIsUse() {
+        return isUse;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setIsUse(Byte isUse) {
+        this.isUse = isUse;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getCreateUserId() {
+        return createUserId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setCreateUserId(Long createUserId) {
+        this.createUserId = createUserId;
+    }
 }

@@ -187,4 +187,10 @@ public interface BookIndexMapper {
                 .build()
                 .execute();
     }
+
+    /**
+     * 查询最后的章节
+     * */
+    BookIndex queryLastIndex(@Param("bookId") Long bookId);
+
 }

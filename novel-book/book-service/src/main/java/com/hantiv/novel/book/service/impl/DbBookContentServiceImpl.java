@@ -1,12 +1,17 @@
-package com.hantiv.novel.crawl.service.impl;
+package com.hantiv.novel.book.service.impl;
 
 import com.hantiv.novel.book.entity.BookContent;
+import com.hantiv.novel.book.mapper.BookContentDynamicSqlSupport;
 import com.hantiv.novel.book.mapper.BookContentMapper;
-import com.hantiv.novel.crawl.service.BookContentService;
+import com.hantiv.novel.book.service.BookContentService;
 import lombok.RequiredArgsConstructor;
+import org.mybatis.dynamic.sql.render.RenderingStrategies;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
+import static org.mybatis.dynamic.sql.SqlBuilder.update;
 
 /**
  * @Author Zhikun Han

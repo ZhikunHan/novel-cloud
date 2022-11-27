@@ -116,4 +116,13 @@ public class BookApi {
         return true;
     }
 
+    /**
+     * 根据小说名和作者名查询是否存在
+     * @param bookName 小说名
+     * @param authorName 作者名
+     * @return 是否存在该小说名和作者名的小说
+     */
+    boolean queryIsExistByBookNameAndAuthorName(String bookName, String authorName){
+        return true;
+    }
 }

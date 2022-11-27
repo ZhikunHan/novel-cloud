@@ -50,7 +50,27 @@ public class PageBean<T> {
         this.list = list;
     }
 
+    public static <T> PageBean<T> of(Integer pageNum, Integer pageSize, Long total, List<T> list) {
+        return new PageBean<>(pageNum, pageSize, total, list);
+    }
+
+    /**
+     * 获取分页数
+     * */
+    public long getPages() {
+        if (this.pageSize == 0L) {
+            return 0L;
+        } else {
+            long pages = this.getTotal() / this.pageSize;
+            if (this.getTotal() % this.pageSize != 0L) {
+                ++pages;
+            }
+
+            return pages;
+        }
+    }
 
     //TODO 使用其他的分页工具或框架进行分页查询的场景
+
 
 }

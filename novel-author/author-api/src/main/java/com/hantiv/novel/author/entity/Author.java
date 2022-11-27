@@ -1,75 +1,136 @@
 package com.hantiv.novel.author.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-
-import javax.annotation.Generated;
-import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.Generated;
 
-@TableName("author")
-@Data
-public class Author implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键
-     */
-    @TableId(value = "id", type = IdType.AUTO)
+public class Author {
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;
 
-    /**
-     * 用户ID
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long userId;
 
-    /**
-     * 邀请码
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String inviteCode;
 
-    /**
-     * 笔名
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String penName;
 
-    /**
-     * 手机号码
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String telPhone;
 
-    /**
-     * QQ或微信账号
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String chatAccount;
 
-    /**
-     * 电子邮箱
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String email;
 
-    /**
-     * 作品方向;0-男频 1-女频
-     */
-    private Integer workDirection;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte workDirection;
 
-    /**
-     * 0：正常;1-封禁
-     */
-    private Integer status;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte status;
 
-    /**
-     * 创建时间
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date createTime;
 
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getId() {
+        return id;
+    }
 
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getUserId() {
+        return userId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getInviteCode() {
+        return inviteCode;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setInviteCode(String inviteCode) {
+        this.inviteCode = inviteCode == null ? null : inviteCode.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getPenName() {
+        return penName;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setPenName(String penName) {
+        this.penName = penName == null ? null : penName.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getTelPhone() {
+        return telPhone;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setTelPhone(String telPhone) {
+        this.telPhone = telPhone == null ? null : telPhone.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getChatAccount() {
+        return chatAccount;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setChatAccount(String chatAccount) {
+        this.chatAccount = chatAccount == null ? null : chatAccount.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getEmail() {
+        return email;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getWorkDirection() {
+        return workDirection;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setWorkDirection(Byte workDirection) {
+        this.workDirection = workDirection;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getStatus() {
+        return status;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

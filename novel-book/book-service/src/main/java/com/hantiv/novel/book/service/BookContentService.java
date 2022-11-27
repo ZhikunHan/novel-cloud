@@ -1,4 +1,4 @@
-package com.hantiv.novel.crawl.service;
+package com.hantiv.novel.book.service;
 
 import com.hantiv.novel.book.entity.BookContent;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @Author Zhikun Han
- * @Date Created in 16:56 2022/11/20
+ * @Date Created in 15:56 2022/11/27
  * @Description:
  */
 public interface BookContentService {

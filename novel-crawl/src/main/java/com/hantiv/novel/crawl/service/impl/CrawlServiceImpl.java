@@ -4,36 +4,43 @@ package com.hantiv.novel.crawl.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.hantiv.novel.book.entity.Book;
-import com.hantiv.novel.book.service.BookService;
 import com.hantiv.novel.common.bean.PageBean;
 import com.hantiv.novel.common.cache.CacheKey;
 import com.hantiv.novel.common.cache.CacheService;
-import com.hantiv.novel.common.enums.ResponseStatus;
-import com.hantiv.novel.common.exception.BusinessException;
-import com.hantiv.novel.common.utils.BeanUtil;
-import com.hantiv.novel.common.utils.IdWorker;
-import com.hantiv.novel.common.utils.SpringUtil;
-import com.hantiv.novel.common.utils.ThreadUtil;
 import com.hantiv.novel.crawl.core.crawl.CrawlParser;
 import com.hantiv.novel.crawl.core.crawl.RuleBean;
+import com.hantiv.novel.common.enums.ResponseStatus;
+import com.hantiv.novel.common.bean.PageBuilder;
+import com.hantiv.novel.common.utils.IdWorker;
+import com.hantiv.novel.common.utils.ThreadUtil;
+import com.hantiv.novel.common.exception.BusinessException;
+import com.hantiv.novel.common.utils.BeanUtil;
 import com.hantiv.novel.crawl.entity.CrawlSingleTask;
 import com.hantiv.novel.crawl.entity.CrawlSource;
+import com.hantiv.novel.crawl.mapper.CrawlSingleTaskDynamicSqlSupport;
 import com.hantiv.novel.crawl.mapper.CrawlSingleTaskMapper;
+import com.hantiv.novel.crawl.mapper.CrawlSourceDynamicSqlSupport;
 import com.hantiv.novel.crawl.mapper.CrawlSourceMapper;
 import com.hantiv.novel.crawl.service.CrawlService;
 import com.hantiv.novel.crawl.vo.CrawlSingleTaskVO;
 import com.hantiv.novel.crawl.vo.CrawlSourceVO;
+import com.hantiv.novel.common.utils.SpringUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
+import org.mybatis.dynamic.sql.render.RenderingStrategies;
+import org.mybatis.dynamic.sql.select.render.SelectStatementProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.hantiv.novel.crawl.mapper.CrawlSourceDynamicSqlSupport.*;
+import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
+import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 import static com.hantiv.novel.common.utils.HttpUtil.getByHttpClientWithChrome;
 
@@ -220,7 +227,12 @@ public class CrawlServiceImpl implements CrawlService {
 
     @Override
     public CrawlSource getCrawlSource(Integer id) {
-        return crawlSourceMapper.selectById(id);
+        Optional<CrawlSource> opt=crawlSourceMapper.selectByPrimaryKey(id);
+        if(opt.isPresent()) {
+            CrawlSource crawlSource =opt.get();
+            return crawlSource;
+        }
+        return null;
     }
 
     /**

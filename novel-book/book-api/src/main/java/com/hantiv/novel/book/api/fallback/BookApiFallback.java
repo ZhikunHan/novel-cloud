@@ -57,4 +57,9 @@ public class BookApiFallback implements BookApi {
     public boolean updateBookPic(String picUrl, Long bookId) {
         return false;
     }
+
+    @Override
+    public boolean queryIsExistByBookNameAndAuthorName(String bookName, String authorName) {
+        return false;
+    }
 }

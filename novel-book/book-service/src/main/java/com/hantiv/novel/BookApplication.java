@@ -17,7 +17,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
         RedisRepositoriesAutoConfiguration.class
 })
 //@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {CacheService.class})})
-//@SpringBootApplication
 @EnableFeignClients
 public class BookApplication {
 

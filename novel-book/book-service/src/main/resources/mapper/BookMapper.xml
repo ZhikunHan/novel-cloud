@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hantiv.novel.book.mapper.BookMapper">
+
+
+    <update id="addVisitCount" >
+        update book set visit_count = visit_count + ${visitCount}
+        where id = #{bookId}
+    </update>
+
+    <select id="listRecBookByCatId" parameterType="int" resultType="com.hantiv.novel.book.entity.Book">
+        select id,pic_url,book_name,book_desc
+        from book
+        where cat_id = #{catId}
+        order by RAND() LIMIT 4
+    </select>
+
+
+    <update id="addCommentCount" parameterType="long">
+        update book set comment_count = comment_count+1
+        where  id = #{bookId}
+    </update>
+
+    <select id="queryNetworkPicBooks" resultType="com.hantiv.novel.book.entity.Book">
+        select
+        id,pic_url from book
+        where pic_url like 'http%'
+        and pic_url not like concat('%',#{localPicPrefix},'%')
+        limit #{limit}
+    </select>
+
+    <select id="selectIdsByScoreAndRandom" parameterType="int" resultType="com.hantiv.novel.book.entity.Book">
+
+       select id,book_name,author_name,pic_url,book_desc,score from book ORDER BY score,RAND() LIMIT #{limit};
+   </select>
+
+    <select id="queryNeedUpdateBook" resultType="com.hantiv.novel.book.entity.Book">
+        select id,crawl_source_id,crawl_book_id,crawl_last_time,pic_url,word_count
+        from book where last_index_update_time >= #{startDate} and crawl_source_id is not null
+        order by crawl_last_time
+            limit ${limit}
+    </select>
+
+    <select id="queryTotalWordCount" parameterType="long" resultType="int">
+        select sum(word_count) from book_index where book_id = #{bookId}
+    </select>
+
+    <update id="updateCrawlLastTime">
+        update book set crawl_last_time = #{currentDate}
+        where id in
+        <foreach collection="books" open="(" separator="," close=")" item="book">
+            #{book.id}
+        </foreach>
+    </update>
+
+</mapper>

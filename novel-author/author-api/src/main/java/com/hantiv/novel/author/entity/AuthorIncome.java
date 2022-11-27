@@ -1,76 +1,152 @@
 package com.hantiv.novel.author.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.Generated;
 
-/**
- * @Author Zhikun Han
- * @Date Created in 20:52 2022/11/12
- * @Description:
- */
-@TableName("author_income")
-@Data
-public class AuthorIncome implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键
-     */
-    @TableId(value = "id", type = IdType.AUTO)
+public class AuthorIncome {
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;
 
-    /**
-     * 作家ID
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Long userId;
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long authorId;
 
-    /**
-     * 小说ID
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long bookId;
 
-    /**
-     * 收入月份
-     */
+    @JsonFormat(pattern = "yyyy年MM月", timezone = "GMT+8")
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date incomeMonth;
 
-    /**
-     * 税前收入;单位：分
-     */
-    private Integer preTaxIncome;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Long preTaxIncome;
 
-    /**
-     * 税后收入;单位：分
-     */
-    private Integer afterTaxIncome;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Long afterTaxIncome;
 
-    /**
-     * 支付状态;0-待支付 1-已支付
-     */
-    private Integer payStatus;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte payStatus;
 
-    /**
-     * 稿费确认状态;0-待确认 1-已确认
-     */
-    private Integer confirmStatus;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte confirmStatus;
 
-    /**
-     * 详情
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String detail;
 
-    /**
-     * 创建时间
-     */
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date createTime;
 
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getId() {
+        return id;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getUserId() {
+        return userId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getAuthorId() {
+        return authorId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getBookId() {
+        return bookId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Date getIncomeMonth() {
+        return incomeMonth;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setIncomeMonth(Date incomeMonth) {
+        this.incomeMonth = incomeMonth;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getPreTaxIncome() {
+        return preTaxIncome;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setPreTaxIncome(Long preTaxIncome) {
+        this.preTaxIncome = preTaxIncome;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Long getAfterTaxIncome() {
+        return afterTaxIncome;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setAfterTaxIncome(Long afterTaxIncome) {
+        this.afterTaxIncome = afterTaxIncome;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getPayStatus() {
+        return payStatus;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setPayStatus(Byte payStatus) {
+        this.payStatus = payStatus;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getConfirmStatus() {
+        return confirmStatus;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setConfirmStatus(Byte confirmStatus) {
+        this.confirmStatus = confirmStatus;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public String getDetail() {
+        return detail;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

@@ -56,20 +56,31 @@ public enum ResponseStatus {
      * 作者相关错误
      * */
     INVITE_CODE_INVALID(4001, "邀请码无效！"),
-    AUTHOR_STATUS_FORBIDDEN(4002, "作者状态异常，暂不能管理小说！")
-    , BOOKNAME_EXISTS(4003,"已发布过同名小说！")
+    AUTHOR_STATUS_FORBIDDEN(4002, "作者状态异常，暂不能管理小说！"),
+    BOOKNAME_EXISTS(4003,"已发布过同名小说！"),
 
-    ,
+    /**
+     * 小说相关错误
+     */
+    BOOK_EXISTS(5001,"该小说已存在"),
+
     /**
      * 搜索引擎相关错误
      * */
     ES_SEARCH_FAIL(9001,"密码错误！"),
 
+    /**
+     * 文件相关错误
+     * */
+    FILE_DIR_MAKE_FAIL(10001,"目录创建失败"),
+    FILE_NOT_IMAGE(10002,"请上传图片类型的文件"),
+    FILE_SIZE_LIMIT(10003,"文件大小超出限制"),
 
     /**
      * 其他通用错误
      * */
     PASSWORD_ERROR(88001,"密码错误！");
+
     private int code;
     private String msg;
 
